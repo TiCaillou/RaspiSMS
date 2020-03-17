@@ -202,7 +202,12 @@
 			$errors = false;
 
 			foreach ($numbers as $number)
-			{
+            {
+                if (!$number)
+                {
+                    continue;
+                }
+                
 				if (!$number = internalTools::parsePhone($number))
 				{
 					$errors = true;
