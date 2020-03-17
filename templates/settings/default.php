@@ -39,7 +39,8 @@
 									<div class="panel-heading">
 										<h4 class="panel-title"><i class="fa fa-share fa-fw"></i> Transfert des SMS par e-mail</h4>
 									</div>
-									<div class="panel-body">
+                                    <div class="panel-body">
+                                        <div class="alert alert-warning">Pour utiliser cette fonctionnalité vous devez avoir configuré PHP pour qu'il utilise un serveur de mail valide !</div>
 										<form action="<?php echo $this->generateUrl('settings', 'change', ['transfer', $_SESSION['csrf']]); ?>" method="POST">
 											<div class="form-group">
 												<label>Transfert activé : </label>

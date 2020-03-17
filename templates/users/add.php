@@ -37,6 +37,9 @@
 							<h3 class="panel-title"><i class="fa fa-user fa-fw"></i> Ajout d'un utilisateur</h3>
 						</div>
 						<div class="panel-body">
+                            <div class="alert alert-warning">
+                                Un email sera envoyé à l'utilisateur avec ses identifiants. Pour cela vous devez avoir configuré PHP pour qu'il utilise un serveur de mail valide ! Si ce n'est pas le cas, l'utilisateur sera créé mais ne recevra pas de mail et ne pourra donc pas trouver un mot de passe généré aléatoirement !
+                            </div>
 							<form action="<?php echo $this->generateUrl('users', 'create', [$_SESSION['csrf']]);?>" method="POST">
 								<div class="form-group">
 									<label>Adresse e-mail</label>
@@ -52,7 +55,7 @@
 										<input name="email_confirm" class="form-control" type="email" placeholder="Confirmer l'adresse e-mail de l'utilisateur" required>
 									</div>
 								</div>
-								<div class="form-group">
+                                <div class="form-group">
 									<label>Mot de passe (laissez vide pour générer le mot de passe automatiquement)</label>
 									<div class="form-group input-group">
 										<span class="input-group-addon"><span class="fa fa-lock"></span></span>
