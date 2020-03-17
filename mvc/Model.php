@@ -227,6 +227,18 @@
 		 */
 		public function runQuery($query, $datas = array(), $return_type = self::FETCHALL, $fetch_mode = PDO::FETCH_ASSOC, $debug = false)
 		{
+            foreach ($datas as $key => $value)
+            {
+                if ($value === true)
+                {
+                    $datas[$key] = 1;
+                }
+                elseif ($value === false)
+                {
+                    $datas[$key] = 0;
+                }
+            }
+
 			$req = $this->bdd->prepare($query);
 			$req->setFetchMode($return_type);
 			$req->execute($datas);
@@ -430,8 +442,8 @@
 			if (!$fields)
 			{
 				return false;
-			}
-			
+            }
+
 			$params = array();
 			$sets = array();
 
@@ -632,15 +644,7 @@
 					return false;
 				}
 
-				//Gestion des booléan à false 
-				if ($field['TYPE'] == "TINYINT"){
-					if ($datas[$nom] == false)
-						$params[$nom] = 0;
-					else 
-						$params[$nom] = 1;
-				}else{
-					$params[$nom] = $datas[$nom];
-				}
+                $params[$nom] = $datas[$nom];
 				$fieldNames[] = $nom;
 			}
 
