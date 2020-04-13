@@ -34,33 +34,28 @@
 							<h3 class="panel-title"><i class="fa fa-user fa-fw"></i> Liste des contacts</h3>
 						</div>
 						<div class="panel-body">
-							<div class="table-responsive">
-								<table class="table table-bordered table-hover table-striped" id="table-contacts">
-									<thead>
-										<tr>
-											<th>#</th>
-											<th>Nom</th>
-											<th>Numéro</th>
-											<th style="width:5%;">Sélectionner</th>
-										</tr>
-									</thead>
-									<tbody>
-									<?php
-										foreach ($contacts as $contact)
-										{
-											?>
-											<tr>
-												<td><?php secho($contact['id']); ?></td>
-												<td><?php secho($contact['name']); ?></td>
-												<td><?php secho($contact['number']); ?></td>
-												<td><input type="checkbox" value="<?php secho($contact['id']); ?>"></td>
-											</tr>
-											<?php
-										}
-									?>
-									</tbody>
-								</table>
-							</div>
+						      <div class="table-responsive">
+							<table class="table table-hover table-striped table-condensed" id="table-contacts" data-paging="true" data-sorting="true" data-state="true" data-filtering="true">
+							  <thead>
+							    <tr>
+							      <th data-breakpoints="xs sm md" data-type="number">#</th>
+							      <th>Nom</th>
+							      <th data-breakpoints="xs sm">Numéro</th>
+							      <th data-breakpoints="xs sm md" data-sortable="false" style="width: 5%;"><input type="checkbox" id="check-all" value="all" title="Sélectionnez tous"/></th>
+							    </tr>
+							  </thead>
+							  <tbody>
+							    <?php foreach ($contacts as $k => $contact) { ?>
+							      <tr <?php if ($k == 0) echo 'data-expanded="true"'; ?> >
+								<td><?php secho($contact['id']); ?></td>
+								<td><?php secho($contact['name']); ?></td>
+								<td><?php secho($contact['number']); ?></td>
+								<td><input type="checkbox" value="<?php secho($contact['id']); ?>"></td>
+							      </tr>
+							    <?php } ?>
+							  </tbody>
+							</table>
+						      </div>
 							<div>
 								<div class="col-xs-6 no-padding">
 									<a class="btn btn-success" href="<?php echo $this->generateUrl('contacts', 'add'); ?>"><span class="fa fa-plus"></span> Ajouter un contact</a>
