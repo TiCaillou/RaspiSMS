@@ -34,6 +34,11 @@
 		<!-- International Phone Number, JS and CSS -->
 		<script src="<?php echo HTTP_PWD; ?>js/intlTelInput/intlTelInput.min.js"></script>
 		<link href="<?php echo HTTP_PWD; ?>css/intlTelInput.css" rel="stylesheet">
+
+		<!-- FooTable for array filters -->
+    		<script src="<?php echo HTTP_PWD; ?>js/moment-with-locales.min.js"></script>
+		<script src="<?php echo HTTP_PWD; ?>js/footable.min.js"></script>
+    		<link href="<?php echo HTTP_PWD; ?>css/footable.bootstrap.min.css" rel="stylesheet">		
 		
 		<!-- Custom JS -->
 		<script src="<?php echo HTTP_PWD; ?>js/custom.js"></script>
